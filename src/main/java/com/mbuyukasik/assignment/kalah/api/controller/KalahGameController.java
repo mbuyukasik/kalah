@@ -42,14 +42,25 @@ public class KalahGameController {
 	private static final String GAME_URL_TEMPLATE = "%s://%s:%d/games/%s";
 	private static final String MOVE_URL_TEMPLATE = "%s://%s:%d/games/%s/pits/%d";
 
+	private static final String CREATE_GAME_DESCRIPTION_FOR_201 = "Game successfully created";
+	private static final String CREATE_GAME_DESCRIPTION_FOR_400 = "Game code is invalid!\n * Error Code-002, Error message: Game is not found";
+	private static final String DESCRIPTION_FOR_500 = "Game successfully created";
+
+	private static final String MOVE_DESCRIPTION_FOR_200 = "Move operation completed successfully";
+	private static final String MOVE_DESCRIPTION_FOR_400 = "Invalid parameters. "
+			+ " See details in response object! " 
+			+ "\n* Error Code-003, Error message: Game is over"
+			+ "\n* Error Code-004, Error message: Invalid pit id"
+			+ "\n* Error Code-005, Error message: Pit is empty";
+
 	@Autowired
 	private GameManager gameManager;
 
 	@ApiOperation(value = "This rest method is used to create a new game")
 	@ApiResponses(value = {
-			@ApiResponse(code = 201, message = "Game successfully created", response = CreateGameResponse.class),
-			@ApiResponse(code = 400, message = "There is an active game!", response = ErrorResponse.class),
-			@ApiResponse(code = 500, message = "Operation failed unexpectedly!", response = ErrorResponse.class) })
+			@ApiResponse(code = 201, message = CREATE_GAME_DESCRIPTION_FOR_201, response = CreateGameResponse.class),
+			@ApiResponse(code = 400, message = CREATE_GAME_DESCRIPTION_FOR_400, response = ErrorResponse.class),
+			@ApiResponse(code = 500, message = DESCRIPTION_FOR_500, response = ErrorResponse.class) })
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(path = "")
 	public ResponseEntity<CreateGameResponse> createGame(HttpServletRequest request) {
@@ -70,9 +81,9 @@ public class KalahGameController {
 
 	@ApiOperation(value = "This method is used to receive player's move")
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Move operation completed successfully", response = MoveResponse.class),
-			@ApiResponse(code = 400, message = "Invalid parameters. See details in response object!", response = ErrorResponse.class),
-			@ApiResponse(code = 500, message = "Operation failed unexpectedly!", response = ErrorResponse.class) })
+			@ApiResponse(code = 200, message = MOVE_DESCRIPTION_FOR_200, response = MoveResponse.class),
+			@ApiResponse(code = 400, message = MOVE_DESCRIPTION_FOR_400, response = ErrorResponse.class),
+			@ApiResponse(code = 500, message = DESCRIPTION_FOR_500, response = ErrorResponse.class) })
 	@ResponseStatus(HttpStatus.OK)
 	@PutMapping(path = "/{game_code}/pits/{pit_id}")
 	public ResponseEntity<MoveResponse> move(HttpServletRequest request,

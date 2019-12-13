@@ -24,7 +24,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 	
-	private ApiInfo apiInfo = new ApiInfo("Kalah Game", "This is an assignment of backbase. Configurable kalah game",
+	private ApiInfo apiInfo = new ApiInfo("Kalah Game", "This is an assignment of backbase. Configurable kalah game with default 6 stone.",
 			"1.0.0", "",
 			new Contact("Mehmet Buyukasik",
 					"https://www.linkedin.com/in/mehmet-b%C3%BCy%C3%BCka%C5%9F%C4%B1k-04419571/",
