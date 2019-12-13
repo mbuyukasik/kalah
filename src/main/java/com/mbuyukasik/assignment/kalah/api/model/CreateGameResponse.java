@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author TTMBUYUKASIK
  *
  */
-@JsonPropertyOrder({"id", "uri"})
+@JsonPropertyOrder({"id", "url"})
 public class CreateGameResponse {
 	
 	@JsonProperty
