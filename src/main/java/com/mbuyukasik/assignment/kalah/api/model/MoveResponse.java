@@ -15,22 +15,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class MoveResponse extends CreateGameResponse {
 
 	@JsonProperty
-	private Map<Integer, Integer> status;
+	private Map<String, String> status;
 	
 	public MoveResponse() {
 		this(null, null, null);
 	}
 	
-	public MoveResponse(String id, String url, Map<Integer, Integer> status) {
+	public MoveResponse(String id, String url, Map<String, String> status) {
 		super(id, url);
 		this.status = status;
 	}
 
-	public Map<Integer, Integer> getStatus() {
+	public Map<String, String> getStatus() {
 		return status;
 	}
 
-	public void setStatus(Map<Integer, Integer> status) {
+	public void setStatus(Map<String, String> status) {
 		this.status = status;
 	}
 	

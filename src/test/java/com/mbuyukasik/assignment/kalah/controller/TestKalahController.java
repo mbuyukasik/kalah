@@ -170,7 +170,7 @@ public class TestKalahController extends TestAbstractBootApplication {
 			IntStream.range(pitIndex + 1, lastStoneIndex + 1).forEach(index -> pitStatus[index]++);
 			pitStatus[pitIndex] = 0;
 			
-			int[] receivedStatus = moveResponse.getStatus().values().stream().mapToInt(value -> (int) value).toArray();
+			int[] receivedStatus = moveResponse.getStatus().values().stream().mapToInt(value -> Integer.valueOf(value)).toArray();
 
 			String errorMessage = String.format("Game status is incorrect.!");
 			assertArrayEquals(receivedStatus, pitStatus, errorMessage);

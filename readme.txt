@@ -63,12 +63,13 @@ SAMPLE API OUTPUTS
 ------------------
 CREATEGAME
 Request : http://localhost:8080/games
-Response: {"id":"8345244728","url":"http://localhost:8080/games/8345244728"}
+Response: {"id":"4967289675","url":"http://localhost:8080/games/4967289675"}
 
 MOVE
 Valid
-Request : http://localhost:8080/games/8345244728/pits/1
-Response: {"id":"8345244728","status":{"1":0,"2":7,"3":7,"4":7,"5":7,"6":7,"7":1,"8":6,"9":6,"10":6,"11":6,"12":6,"13":6,"14":0},"url":"http://localhost:8080/games/8345244728/pits/1"}
+Request : http://localhost:8080/games/4967289675/pits/1
+Response: {"id":"4967289675","status":{"1":"0","2":"7","3":"7","4":"7","5":"7","6":"7","7":"1","8":"6","9":"6","10":"6","11":"6","12":"6","13":"6","14":"0"}
+          ,"url":"http://localhost:8080/games/4967289675/pits/1"}
 
 Invalid
 Request : http://localhost:8080/games/12345/pits/1

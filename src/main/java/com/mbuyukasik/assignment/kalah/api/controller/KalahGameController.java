@@ -1,7 +1,8 @@
 package com.mbuyukasik.assignment.kalah.api.controller;
 
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.IntStream;
 
 import javax.servlet.http.HttpServletRequest;
@@ -92,8 +93,15 @@ public class KalahGameController {
 		ValueOperationResult<int[]> moveResult = this.gameManager.move(gameCode, pitId);
 		int[] gameStatus = moveResult.getResultValue();
 
-		Map<Integer, Integer> gameStatusMap = new HashMap<Integer, Integer>();
-		IntStream.range(0, gameStatus.length).forEach(index -> gameStatusMap.put(index + 1, gameStatus[index]));
+		Comparator<String> intComp = new Comparator<String>() {
+			@Override
+			public int compare(String value1, String value2) {
+				return Integer.valueOf(value1).compareTo(Integer.valueOf(value2)) ;
+			}
+		};
+		
+		Map<String, String> gameStatusMap = new TreeMap<String, String>(intComp);
+		IntStream.range(0, gameStatus.length).forEach(index -> gameStatusMap.put(String.valueOf(index + 1), String.valueOf(gameStatus[index])));
 
 		String moveUrl = String.format(MOVE_URL_TEMPLATE, request.getScheme(), request.getServerName(),
 				request.getServerPort(), gameCode, pitId);
