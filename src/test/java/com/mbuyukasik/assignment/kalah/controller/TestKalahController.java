@@ -261,14 +261,13 @@ public class TestKalahController extends TestAbstractBootApplication {
 				startIndex = (pitStatus.length / 2);
 				endIndex = pitStatus.length - 2;
 			}
-			int pitIndex = RandomUtil.generateRandomIndex(startIndex, endIndex);
+			int pitIndex = RandomUtil.generateNumber(startIndex, endIndex);
 			while (pitStatus[pitIndex] == 0) {
-				pitIndex = RandomUtil.generateRandomIndex(startIndex, endIndex);
+				pitIndex = RandomUtil.generateNumber(startIndex, endIndex);
 			}
 			
 			String url = String.format(moveUrl, pitIndex + 1);
 			
-			//System.out.println(String.format("Player %d moving pit index %d", gameEntity.getNextPlayerId(), pitIndex));
 			MoveResponse moveResponse = this.testMove(url, HttpStatus.OK, STATUS_FAIL_MESSAGE, null, null);
 
 			if (moveResponse == null) {

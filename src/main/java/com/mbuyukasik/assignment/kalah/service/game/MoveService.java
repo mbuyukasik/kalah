@@ -2,8 +2,6 @@ package com.mbuyukasik.assignment.kalah.service.game;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +17,6 @@ import com.mbuyukasik.assignment.kalah.service.BaseService;
  */
 @Service
 public class MoveService extends BaseService {
-
-	private static Logger LOG = LoggerFactory.getLogger(MoveService.class);
 
 	private MoveRepository moveRepository;
 

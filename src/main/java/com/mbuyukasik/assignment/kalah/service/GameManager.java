@@ -68,7 +68,7 @@ public class GameManager extends BaseService {
 			Long player1Id = playerList.get(0).getId();
 			Long player2Id = playerList.get(1).getId();
 
-			String gameCode = RandomUtil.genarateCode(codeLength);
+			String gameCode = RandomUtil.generateCode(codeLength);
 			int[] pitStatus = IntStream.range(1, (numberOfStones * 2) + 3).map(value -> numberOfStones).toArray();
 
 			pitStatus[numberOfStones] = 0;

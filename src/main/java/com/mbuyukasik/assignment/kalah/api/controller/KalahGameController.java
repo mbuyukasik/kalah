@@ -100,13 +100,13 @@ public class KalahGameController {
 			}
 		};
 		
-		Map<String, String> gameStatusMap = new TreeMap<String, String>(intComp);
+		Map<String, String> gameStatusMap = new TreeMap<>(intComp);
 		IntStream.range(0, gameStatus.length).forEach(index -> gameStatusMap.put(String.valueOf(index + 1), String.valueOf(gameStatus[index])));
 
 		String moveUrl = String.format(MOVE_URL_TEMPLATE, request.getScheme(), request.getServerName(),
 				request.getServerPort(), gameCode, pitId);
 
-		return new ResponseEntity<MoveResponse>(new MoveResponse(gameCode, moveUrl, gameStatusMap), HttpStatus.OK);
+		return new ResponseEntity<>(new MoveResponse(gameCode, moveUrl, gameStatusMap), HttpStatus.OK);
 	}
 
 }

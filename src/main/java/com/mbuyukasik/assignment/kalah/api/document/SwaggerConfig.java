@@ -41,16 +41,6 @@ public class SwaggerConfig {
 				.build()
 				.apiInfo(apiInfo)
 				.useDefaultResponseMessages(false);
-                //.globalResponseMessage(RequestMethod.POST, getCustomizedResponseMessages());
 	}
-	
-	/*
-	private List<ResponseMessage> getCustomizedResponseMessages() {
-        List<ResponseMessage> responseMessages = new ArrayList<>();
-        responseMessages.add(new ResponseMessageBuilder().code(201).message("Game created successfully!").responseModel(new ModelRef("CreateGameResponse")).build());
-        responseMessages.add(new ResponseMessageBuilder().code(400).message("There is an active game!").responseModel(new ModelRef("ErrorResponse")).build());
-        return responseMessages;
-    }
-    */
 	
 }
